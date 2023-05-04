@@ -1,0 +1,2 @@
+class AddCategorieCvsToCv < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class AddAuthenticationTokenToUser < ApplicationRecord
+end
