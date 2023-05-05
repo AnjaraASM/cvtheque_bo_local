@@ -51,6 +51,9 @@ class CvsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cv_params
-      params.permit(:photo, :nomPrenom, :email, :telephone, :age, :adresse, :facebook, :linkedin, :descriptionProfile, :status, :categorie_cv_id, :disponibility, :photo)
+      params.permit(:photo, :nomPrenom, :email, :telephone, :age, 
+      :adresse, :facebook, :linkedin, :descriptionProfile, :status, 
+      :categorie_cv_id, :disponibility, 
+      :photo, :facebook, :linkedin, :aExperience, :nationalite)
     end
 end

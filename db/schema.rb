@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_26_141944) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_05_123718) do
   create_table "categorie_cvs", force: :cascade do |t|
     t.string "categorie"
     t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "commentaire"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -26,6 +32,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_26_141944) do
     t.string "adresse"
     t.string "facebook"
     t.string "linkedin"
+    t.string "aExperience"
+    t.string "nationalite"
     t.text "descriptionProfile"
     t.boolean "status"
     t.datetime "created_at", null: false

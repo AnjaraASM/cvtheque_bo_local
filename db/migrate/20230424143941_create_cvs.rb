@@ -8,6 +8,8 @@ class CreateCvs < ActiveRecord::Migration[7.0]
       t.string :adresse
       t.string :facebook
       t.string :linkedin
+      t.string :aExperience
+      t.string :nationalite
       t.text :descriptionProfile
       t.boolean :status
 

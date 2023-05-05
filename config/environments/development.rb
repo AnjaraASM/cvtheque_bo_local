@@ -8,6 +8,7 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
+
   # Do not eager load code on boot.
   config.eager_load = false
 
@@ -53,7 +54,25 @@ Rails.application.configure do
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
+  # Configuration NGROK
+   # Whitelist one hostname
+  #  config.hosts << "a855-154-126-85-45.ngrok-free.app"
+   # Whitelist a test domain. Rails adds \A and \z around
+   # your regular expressions.
+  #  config.hosts << /[a-z0-9]+\.ngrok\.io/
+  config.hosts.clear
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address:              'localhost',
+  port:                  4000,
+  domain:               'localhost',
+  user_name:            '',
+  password:             '',
+  authentication:       'plain',
+  enable_starttls_auto: true,
+  open_timeout:         5,
+  read_timeout:         5 }
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
