@@ -1,0 +1,23 @@
+<html>
+   
+   <head>
+      <meta content = 'text/html; charset = UTF-8' http-equiv = 'Content-Type' />
+   </head>
+   
+   <body>
+      <h2>Bonjour <i><%= @user.name %></i> ! </h2>
+      <h3>Bienvenu sur le Cvthèque Activ Solution </h3>
+      <p>
+         Voici vos parametre de connection sur le site 
+      </p>
+      
+      <p>
+         email: <%= @user.email %> <br/>
+         Mot de passe: <%= @user.pass %><br/>
+         Votre compte sera valider jusqu'au <strong><%= @user.expire %> </strong>
+      </p>
+      
+      <p>Merci de nous avoir rejoint on vous souhaite une bonne journée !</p>
+      
+   </body>
+</html>

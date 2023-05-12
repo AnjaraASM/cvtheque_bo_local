@@ -55,24 +55,22 @@ Rails.application.configure do
   config.active_record.verbose_query_logs = true
 
   # Configuration NGROK
-   # Whitelist one hostname
-  #  config.hosts << "a855-154-126-85-45.ngrok-free.app"
-   # Whitelist a test domain. Rails adds \A and \z around
-   # your regular expressions.
-  #  config.hosts << /[a-z0-9]+\.ngrok\.io/
-  config.hosts.clear
+  # Whitelist one hostname
+   config.hosts << "1748-197-149-16-135.ngrok-free.app"
+  # Whitelist a test domain. Rails adds \A and \z around
+  # your regular expressions.
+   config.hosts << /[a-z0-9]+\.ngrok\.io/
+  # config.hosts.clear
 
+  #configuration maildev
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  address:              'localhost',
-  port:                  4000,
-  domain:               'localhost',
-  user_name:            '',
-  password:             '',
-  authentication:       'plain',
-  enable_starttls_auto: true,
-  open_timeout:         5,
-  read_timeout:         5 }
+      address: "localhost",
+      port: 1025,
+      enable_starttls_auto: false
+  }
+
+
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 

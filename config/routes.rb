@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :demand_logins
   resources :comments
   resources :informatiques
   resources :loisirs
@@ -14,4 +15,6 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   post "/connection", to: "users#login"
+  get "/ddemande", to: "demand_logins#last"
+  get "/notify", to: "demand_logins#notify"
 end

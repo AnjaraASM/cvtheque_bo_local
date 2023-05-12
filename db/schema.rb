@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_05_123718) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_10_150829) do
   create_table "categorie_cvs", force: :cascade do |t|
     t.string "categorie"
     t.text "description"
@@ -41,6 +41,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_05_123718) do
     t.integer "categorie_cv_id"
     t.text "photo"
     t.string "disponibility"
+  end
+
+  create_table "demand_logins", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "object"
+    t.text "description"
+    t.boolean "lu", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "diplomes", force: :cascade do |t|
@@ -88,6 +98,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_05_123718) do
     t.string "name"
     t.string "email"
     t.string "role"
+    t.string "pass"
     t.date "expire"
     t.string "password_digest"
     t.datetime "created_at", null: false

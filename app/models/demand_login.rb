@@ -1,0 +1,2 @@
+class DemandLogin < ApplicationRecord
+end

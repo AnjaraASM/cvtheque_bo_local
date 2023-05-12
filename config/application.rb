@@ -24,11 +24,7 @@ module CvthequeApi
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    #Action Mailer Ruby in rails
-    config.action_mailer.default_url_option = {
-      host: 'localhost:4000'
-    }
-
+    
     # test host NGROK
     config.hosts << "a855-154-126-85-45.ngrok-free.app"
 

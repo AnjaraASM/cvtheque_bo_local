@@ -19,9 +19,10 @@ class UsersController < ApplicationController
 
     if @user.save
       token = encode_token({user_id: @user.id})
-      render json: {user: @user, token: token, authentication_token: @user.authentication_token, id: @user.id}, status: :created, location: @user
+      UsermailerMailer.with(user: @user ).welcome_email.deliver_later
+      render json: {user: @user, token: token, authentication_token: @user.authentication_token, id: @user.id, message: 'Créer avec succèes', color: 'alert alert-success'}, status: :created, location: @user
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: {message: 'Une erreur est survenue lors de la validation', color: 'alert alert-waring'}, status: :unprocessable_entity
     end
   end
 
@@ -44,9 +45,9 @@ class UsersController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
         token = encode_token({user_id: @user.id})
-        render json: {user: @user, token: token}, status: :created
+        render json: {user: @user, token: token, message: 'Vous êtes connecter !', color: 'alert alert-success'}, status: 202
     else
-        render json: {error: "E-mail ou mot de passe incorrect"}
+        render json: {message: "E-mail ou mot de passe incorrect", color: 'alert alert-danger'}, status: 203
     end
   end
 
@@ -58,6 +59,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.permit(:name, :email, :role, :expire, :password, :authentication_token )
+      params.permit(:name, :email, :role, :expire, :password, :authentication_token, :pass )
     end
 end
