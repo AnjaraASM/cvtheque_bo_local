@@ -56,10 +56,10 @@ Rails.application.configure do
 
   # Configuration NGROK
   # Whitelist one hostname
-   config.hosts << "1748-197-149-16-135.ngrok-free.app"
+   config.hosts << "ae65-197-149-16-245.ngrok-free.app"
   # Whitelist a test domain. Rails adds \A and \z around
   # your regular expressions.
-   config.hosts << /[a-z0-9]+\.ngrok\.io/
+   config.hosts << /.*\.ngrok\.io/
   # config.hosts.clear
 
   #configuration maildev

@@ -38,6 +38,8 @@ class CategorieCvsController < ApplicationController
   # DELETE /categorie_cvs/1
   def destroy
     @categorie_cv.destroy
+    cv = @categorie_cv.cv_ids
+    cv.delete_all
   end
 
   private

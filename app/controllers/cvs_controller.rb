@@ -8,6 +8,12 @@ class CvsController < ApplicationController
     render json: @cvs
   end
 
+  #methode de recherche
+  def search 
+    @cv = Cv.where("id LIKE ?", "%#{params[:query]}%")
+  end
+    
+
   # GET /cvs/1
   def show
     @exp = @cv.experience_ids
