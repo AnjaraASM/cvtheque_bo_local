@@ -26,7 +26,7 @@ module CvthequeApi
 
     
     # test host NGROK
-    # config.hosts << "ae65-197-149-16-245.ngrok-free.app"
+    # config.hosts << 72e4-197-149-16-168.ngrok-free.app 
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do

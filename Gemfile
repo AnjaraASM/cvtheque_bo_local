@@ -5,6 +5,7 @@ ruby "3.2.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"
+# gem 'pg', '~> 1.5', '>= 1.5.3'
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
@@ -45,6 +46,9 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
+
+# Renvoie de notification pour les utilisateur
+gem 'whenever', require: false
 
 # Indispensable gem
 gem 'simple_token_authentication'

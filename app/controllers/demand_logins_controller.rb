@@ -27,8 +27,12 @@ class DemandLoginsController < ApplicationController
   # POST /demand_logins
   def create
     @demand_login = DemandLogin.new(demand_login_params)
+    @administrateur = User.where(role: 'Administrateur')
 
     if @demand_login.save
+      @administrateur.each do |admin|
+        DemandeLoginMailer.with(demand_login: @demand_login, admini: admin).demande_login.deliver_later
+      end
       render json: @demand_login, status: :created, location: @demand_login
     else
       render json: @demand_login.errors, status: :unprocessable_entity
@@ -57,6 +61,6 @@ class DemandLoginsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def demand_login_params
-      params.permit(:name, :email, :object, :description, :lu)
+      params.permit(:name, :email, :object, :description, :lu, :numero)
     end
 end

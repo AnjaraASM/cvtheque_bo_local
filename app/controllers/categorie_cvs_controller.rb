@@ -8,6 +8,11 @@ class CategorieCvsController < ApplicationController
     render json: @categorie_cvs
   end
 
+  def catCounter
+    @categorie = CategorieCv.count
+    render json: @categorie
+  end
+
   # GET /categorie_cvs/1
   def show
     @cvCount = @categorie_cv.cv_ids.count

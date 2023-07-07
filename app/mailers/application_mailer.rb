@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "conctact@activsolution.fr"
+  default from: "cvtheque@activsolution.fr"
   layout "mailer"
 end

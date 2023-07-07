@@ -1,3 +1,3 @@
 class CategorieCv < ApplicationRecord
-    has_many :cvs
+    has_many :cvs, dependent: :destroy
 end

@@ -11,6 +11,7 @@ class CreateCvs < ActiveRecord::Migration[7.0]
       t.string :aExperience
       t.string :nationalite
       t.text :descriptionProfile
+      t.text :contrat
       t.boolean :status
 
       t.timestamps

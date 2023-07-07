@@ -8,9 +8,31 @@ class CvsController < ApplicationController
     render json: @cvs
   end
 
+  def cvcounter
+    @profile = Cv.all.count
+    render json: @profile
+  end
+
   #methode de recherche
   def search 
-    @cv = Cv.where("id LIKE ?", "%#{params[:query]}%")
+    @cv = Cv.where("id || nomPrenom LIKE ?", "%#{params[:id] || params[:nomPrenom]}%")
+
+    if @cv && @cv.exists?
+      render json: {search: @cv}, status: 200
+    else
+      render json: {message: "Aucune resultat"}, status: 204
+    end
+
+  end
+
+  # Notification Mailer CV publish
+  def mailer_publier_cv
+    @userCategorieCv = UserCategorieCv.where(categorie_cv_id: @cv.categorie_cv_id)
+    @userCategorieCv.each do |catCv|
+      @categorie = CategorieCv.find_by(id: @cv.categorie_cv_id)
+      @user = User.find_by(id: catCv.user_id)
+      UserNotifyCvMailer.with(user: @user, cv: @cv, cat: @categorie).user_new_cv_publish.deliver_later
+    end
   end
     
 
@@ -21,7 +43,8 @@ class CvsController < ApplicationController
     @langage = @cv.langage_ids
     @loisir = @cv.loisir_ids
     @info = @cv.informatique_ids
-    render json: {cv: @cv, exp: @exp, diplo: @diplo, langage: @langage, loisir: @loisir, info: @info}
+    @comment = @cv.comment_ids
+    render json: {cv: @cv, exp: @exp, diplo: @diplo, langage: @langage, loisir: @loisir, info: @info, comment: @comment}
   end
 
   # POST /cvs
@@ -38,6 +61,9 @@ class CvsController < ApplicationController
   # PATCH/PUT /cvs/1
   def update
     if @cv.update(cv_params)
+      if @cv.status == true 
+        mailer_publier_cv
+      end
       render json: @cv
     else
       render json: @cv.errors, status: :unprocessable_entity
@@ -55,11 +81,13 @@ class CvsController < ApplicationController
       @cv = Cv.find(params[:id])
     end
 
+    private
+
     # Only allow a list of trusted parameters through.
     def cv_params
       params.permit(:photo, :nomPrenom, :email, :telephone, :age, 
       :adresse, :facebook, :linkedin, :descriptionProfile, :status, 
       :categorie_cv_id, :disponibility, 
-      :photo, :facebook, :linkedin, :aExperience, :nationalite)
+      :photo, :facebook, :linkedin, :aExperience, :nationalite, :contrat)
     end
 end

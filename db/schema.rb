@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_10_150829) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_21_132748) do
   create_table "categorie_cvs", force: :cascade do |t|
     t.string "categorie"
     t.text "description"
@@ -20,6 +20,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_10_150829) do
 
   create_table "comments", force: :cascade do |t|
     t.text "commentaire"
+    t.string "user_id"
+    t.string "cv_id"
+    t.string "lu"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,6 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_10_150829) do
     t.string "aExperience"
     t.string "nationalite"
     t.text "descriptionProfile"
+    t.text "contrat"
     t.boolean "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -47,6 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_10_150829) do
     t.string "name"
     t.string "email"
     t.string "object"
+    t.string "numero"
     t.text "description"
     t.boolean "lu", default: false
     t.datetime "created_at", null: false
@@ -62,6 +67,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_10_150829) do
     t.integer "cv_id"
   end
 
+  create_table "entretiens", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "cv_id"
+    t.boolean "lu", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "experiences", force: :cascade do |t|
     t.string "societe"
     t.string "datexp"
@@ -69,6 +82,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_10_150829) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "cv_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "cv_id"
+    t.boolean "lu", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "informatiques", force: :cascade do |t|
@@ -94,10 +115,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_10_150829) do
     t.integer "cv_id"
   end
 
+  create_table "user_categorie_cvs", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "categorie_cv_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "role"
+    t.string "phone"
+    t.string "societe"
     t.string "pass"
     t.date "expire"
     t.string "password_digest"
