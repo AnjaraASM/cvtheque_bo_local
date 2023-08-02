@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_21_132748) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_07_140308) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categorie_cvs", force: :cascade do |t|
     t.string "categorie"
     t.text "description"
@@ -70,6 +73,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_21_132748) do
   create_table "entretiens", force: :cascade do |t|
     t.integer "user_id"
     t.integer "cv_id"
+    t.string "drdv"
+    t.string "hrdv"
     t.boolean "lu", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -133,7 +138,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_21_132748) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "authentication_token", limit: 5
+    t.text "authentication_token"
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
   end
 

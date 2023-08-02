@@ -8,4 +8,9 @@ class UsermailerMailer < ApplicationMailer
         @user = params[:user]
         mail(to: user.email, subject:'Expiration de compte sur le CVthèque Activ Solution Océan Indien')
     end
+
+    def motDo_email
+        @user = params[:user]
+        mail(to: @user.email, subject:'Votre mot de passe sur la CVthèque Activ Solution Ocèan Indien')
+    end
 end

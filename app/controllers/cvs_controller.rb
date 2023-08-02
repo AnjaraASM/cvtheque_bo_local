@@ -15,7 +15,7 @@ class CvsController < ApplicationController
 
   #methode de recherche
   def search 
-    @cv = Cv.where("id || nomPrenom LIKE ?", "%#{params[:id] || params[:nomPrenom]}%")
+    @cv = Cv.where(id: params[:id])
 
     if @cv && @cv.exists?
       render json: {search: @cv}, status: 200

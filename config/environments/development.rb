@@ -8,7 +8,6 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
-
   # Do not eager load code on boot.
   config.eager_load = false
 
@@ -55,7 +54,7 @@ Rails.application.configure do
   config.active_record.verbose_query_logs = true
 
   # Configuration NGROK
-  config.hosts << "b5a1-197-149-16-168.ngrok-free.app"
+  config.hosts << "9138-154-126-85-92.ngrok-free.app"
   # Whitelist one hostname
   # Whitelist a test domain. Rails adds \A and \z around
   # your regular expressions.
@@ -68,7 +67,11 @@ Rails.application.configure do
   #     port: 1025,
   #     enable_starttls_auto: false
   # }
-  config.action_mailer.default_url_options = { :host => 'localhost:3001', protocol: 'http' }
+  # config.action_mailer.default_url_options = { :host => 'localhost:3001', protocol: 'http' }
+  # E-mail SMTP sendinblue
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp-relay.brevo.com',
     port:                 587,

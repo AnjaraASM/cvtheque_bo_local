@@ -7,4 +7,14 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-users = User.create( name: "Admin Cvtheque", email: "cvadmin@gmail.com", password: "2023cvtheque@asfr", role: "Administrateur")
+users = [User.create( name: "Admin Cvtheque", email: "cvadmin@gmail.com", password: "2023cvtheque@asfr", role: "Administrateur")]
+
+categorie_cvs = [
+    CategorieCv.create(categorie: "Télésecretaire Médical", description: "Poste de télésecretaire médical")
+]
+
+cvs = [
+    Cv.create(nomPrenom: "Kioto Ny aina", email: "aina4587@gmail.com", telephone: "0325487956", age: "06/12/86", adresse: "Antananarivo",
+        aExperience: "+ de 5 ans", nationalite: "Malagasy", contrat: "CDI"    
+    )
+]

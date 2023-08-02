@@ -23,4 +23,6 @@ Rails.application.routes.draw do
   get "/cvall", to: "cvs#cvcounter"
   get "/catcounter", to: "categorie_cvs#catCounter"
   get "/usersearch", to: "users#search"
+  get "/entretienCounter", to: "entretiens#entretienCounter"
+  post "/mdpo", to: "users#mdpo"
 end

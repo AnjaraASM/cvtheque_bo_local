@@ -13,6 +13,12 @@ class EntretiensController < ApplicationController
     render json: @entretien
   end
 
+  #entretienCounter
+  def entretienCounter
+    @entretien = Entretien.where('lu': false).count
+    render json: @entretien
+  end
+
   # POST /entretiens
   def create
     @entretien = Entretien.new(entretien_params)
@@ -50,6 +56,6 @@ class EntretiensController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def entretien_params
-      params.permit(:user_id, :cv_id, :lu)
+      params.permit(:user_id, :cv_id, :lu, :hrdv, :drdv)
     end
 end

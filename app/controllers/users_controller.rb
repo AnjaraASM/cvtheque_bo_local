@@ -71,10 +71,21 @@ class UsersController < ApplicationController
             errors.add(:base, "Oops, Votre compte est expirer !")
           else
             token = encode_token({user_id: @user.id})
-            render json: {user: @user, token: token, message: 'Vous êtes connecter !', color: 'alert alert-success'}, status: 202
+            render json: {user: @user, token: token, message: 'Vous êtes connecter !', color: 'alert alert-success'}, status: 200
           end
     else
         render json: {message: "E-mail ou mot de passe incorrect", color: 'alert alert-danger'}, status: 203
+    end
+  end
+
+  #Mot de passe oublier
+  def mdpo
+    @user = User.find_by(email: params[:email])
+    if @user
+      render json: {user: @user, message: 'Vous êtes connecter !', color: 'alert alert-success'}, status: 200
+      UsermailerMailer.with(user: @user ).motDo_email.deliver_later
+    else
+      render json: {message: "Votre e-mail n'existe pas", color: 'alert alert-danger'}, status: 203
     end
   end
 

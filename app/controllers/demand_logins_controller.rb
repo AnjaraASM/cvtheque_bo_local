@@ -10,7 +10,6 @@ class DemandLoginsController < ApplicationController
 
   def notify
     @notify = DemandLogin.all.where("lu": false).count
-
     render json: @notify
   end
 
