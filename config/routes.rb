@@ -25,4 +25,5 @@ Rails.application.routes.draw do
   get "/usersearch", to: "users#search"
   get "/entretienCounter", to: "entretiens#entretienCounter"
   post "/mdpo", to: "users#mdpo"
+  post "/notemail", to: "notification#emailNotification"
 end
