@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_07_140308) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_10_131452) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_07_140308) do
     t.integer "categorie_cv_id"
     t.text "photo"
     t.string "disponibility"
+    t.integer "sous_category_id"
   end
 
   create_table "demand_logins", force: :cascade do |t|
@@ -56,6 +57,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_07_140308) do
     t.string "object"
     t.string "numero"
     t.text "description"
+    t.text "pays"
+    t.text "adresse"
+    t.text "ip"
     t.boolean "lu", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -120,6 +124,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_07_140308) do
     t.integer "cv_id"
   end
 
+  create_table "sous_categories", force: :cascade do |t|
+    t.string "categorie"
+    t.integer "categorie_cv_id"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "user_categorie_cvs", force: :cascade do |t|
     t.integer "user_id"
     t.integer "categorie_cv_id"
@@ -135,11 +147,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_07_140308) do
     t.string "societe"
     t.string "pass"
     t.date "expire"
+    t.string "pays"
+    t.text "adresse"
+    t.boolean "account", default: false
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "authentication_token"
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
+  end
+
+  create_table "views", force: :cascade do |t|
+    t.integer "cv_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

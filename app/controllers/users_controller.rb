@@ -19,7 +19,10 @@ class UsersController < ApplicationController
   # POST /users
   def create
     @user = User.new(user_params)
-
+    @validation = User.where(email: user_params[:email])
+      if @validation.present?
+        render json: {message: 'Email déjà dans la base de donnée', color: 'alert alert-waring'}, status: 203
+      else
     if @user.save
       token = encode_token({user_id: @user.id})
       date = @user.expire
@@ -35,6 +38,7 @@ class UsersController < ApplicationController
     else
       render json: {message: 'Une erreur est survenue lors de la validation', color: 'alert alert-waring'}, status: :unprocessable_entity
     end
+  end
   end
 
   #users Search
@@ -67,8 +71,11 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
-          if @user.expire.present? && @user.expire < Time.now
-            errors.add(:base, "Oops, Votre compte est expirer !")
+          if @user.expire.present? && @user.expire < Time.now === true
+            # errors.add(:base, "Oops, Votre compte est expirer !")
+            render json: {message: "Votre compte est expiré", color: 'alert alert-danger'}, status: 203
+          elsif @user && @user.account === true
+            render json: {message: "Votre compte à été désactiver", color: 'alert alert-danger'}, status: 203
           else
             token = encode_token({user_id: @user.id})
             render json: {user: @user, token: token, message: 'Vous êtes connecter !', color: 'alert alert-success'}, status: 200
@@ -97,6 +104,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.permit(:name, :email, :role, :expire, :password, :authentication_token, :pass, :phone, :societe)
+      params.permit(:name, :email, :role, :expire, :password, :authentication_token, :pass, :phone, :societe, :adresse, :pays, :account)
     end
 end

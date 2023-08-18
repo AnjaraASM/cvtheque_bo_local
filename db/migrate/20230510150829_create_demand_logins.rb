@@ -6,6 +6,9 @@ class CreateDemandLogins < ActiveRecord::Migration[7.0]
       t.string :object
       t.string :numero
       t.text :description
+      t.text :pays
+      t.text :adresse
+      t.text :ip
       t.boolean :lu, default: false
 
       t.timestamps

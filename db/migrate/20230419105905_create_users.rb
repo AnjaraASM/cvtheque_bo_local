@@ -8,6 +8,9 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :societe
       t.string :pass
       t.date :expire
+      t.string :pays
+      t.text :adresse
+      t.boolean :account, default: false
       t.string :password_digest
 
       t.timestamps

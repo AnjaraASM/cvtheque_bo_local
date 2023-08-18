@@ -17,7 +17,8 @@ class CategorieCvsController < ApplicationController
   def show
     @cvCount = @categorie_cv.cv_ids.count
     @cv = @categorie_cv.cv_ids
-    render json: {cat: @categorie_cv, counter: @cvCount, cvArr: @cv}
+    @sousCat = @categorie_cv.sous_category
+    render json: {cat: @categorie_cv, counter: @cvCount, cvArr: @cv, sousCategorie: @sousCat}
   end
 
   # POST /categorie_cvs
@@ -43,8 +44,6 @@ class CategorieCvsController < ApplicationController
   # DELETE /categorie_cvs/1
   def destroy
     @categorie_cv.destroy
-    cv = @categorie_cv.cv_ids
-    cv.delete_all
   end
 
   private

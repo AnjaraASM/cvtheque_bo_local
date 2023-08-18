@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :sous_categories
+  resources :views
   resources :entretiens
   resources :favorites
   resources :demand_logins

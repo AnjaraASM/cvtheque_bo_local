@@ -2,9 +2,7 @@ class NotificationController < ApplicationController
     def emailNotification
         @email = params[:email]
         @bjet = params[:objet]
-        @contenu = params[:contenu]
-        
-        print "==================================#{@email}=========================="
+        @contenu = params[:contenu]        
     end
 
     def SMSNotification

@@ -88,6 +88,6 @@ class CvsController < ApplicationController
       params.permit(:photo, :nomPrenom, :email, :telephone, :age, 
       :adresse, :facebook, :linkedin, :descriptionProfile, :status, 
       :categorie_cv_id, :disponibility, 
-      :photo, :facebook, :linkedin, :aExperience, :nationalite, :contrat)
+      :photo, :facebook, :linkedin, :aExperience, :nationalite, :contrat, :sous_category_id)
     end
 end
