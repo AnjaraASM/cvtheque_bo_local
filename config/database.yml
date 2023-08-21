@@ -86,3 +86,4 @@ production:
   database: cvtheque_api_production
   username: "user"
   password: "cvtheque@@u5"
+  secret_key_base: "cvtheque@putty//2023|byjeanclaude-RAKOTONARIVO|activ_solution_ocean_idien"
