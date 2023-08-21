@@ -86,3 +86,4 @@ production:
   database: cvtheque_api_production
   username: "user"
   password: "cvtheque@@u5"
+  secret_key_base: 3c35a807774fcada136323a878a95390d388f9a06713eb0b6ed6b7969496882009382fdde3f0445729968dfa220d4ad24f669281ee3e4926f5fb8d059dae8d96
