@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-users = [User.create( name: "Admin Cvtheque", email: "cvadmin@gmail.com", password: "2023cvtheque@asfr", role: "Administrateur")]
+users = [User.create( name: "Leila", email: "contact@activsolution.fr", password: "azerty@123456789", role: "Administrateur")]
 
 categorie_cvs = [
     CategorieCv.create(categorie: "Télésecretaire Médical", description: "Poste de télésecretaire médical")

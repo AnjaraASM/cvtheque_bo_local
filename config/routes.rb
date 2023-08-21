@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :profil_ideals
   resources :sous_categories
   resources :views
   resources :entretiens

@@ -8,6 +8,7 @@ class User < ApplicationRecord
     has_many :comments, dependent: :destroy
     has_many :user_categorie_cv, dependent: :destroy
     has_many :views
+    has_many :profil_ideals
 
     def account_not_expired
         if expire.present? && expire < Time.now

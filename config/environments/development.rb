@@ -54,7 +54,7 @@ Rails.application.configure do
   config.active_record.verbose_query_logs = true
 
   # Configuration NGROK
-  config.hosts << "21d6-154-126-85-114.ngrok-free.app"
+  config.hosts << "8fa5-154-126-85-47.ngrok-free.app"
   # Whitelist one hostname
   # Whitelist a test domain. Rails adds \A and \z around
   # your regular expressions.
