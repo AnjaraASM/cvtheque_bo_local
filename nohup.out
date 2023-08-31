@@ -1,0 +1,116 @@
+Puma starting in single mode...
+* Puma version: 5.6.6 (ruby 3.2.2-p53) ("Birdie's Version")
+*  Min threads: 5
+*  Max threads: 5
+*  Environment: production
+*          PID: 36413
+* Listening on http://0.0.0.0:33066
+Use Ctrl-C to stop
+Puma starting in single mode...
+* Puma version: 5.6.6 (ruby 3.2.2-p53) ("Birdie's Version")
+*  Min threads: 5
+*  Max threads: 5
+*  Environment: production
+*          PID: 36570
+bundler: failed to load command: puma (/home/user/.asdf/installs/ruby/3.2.2/bin/puma)
+/home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/binder.rb:341:in `initialize': Address already in use - bind(2) for "0.0.0.0" port 33066 (Errno::EADDRINUSE)
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/binder.rb:341:in `new'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/binder.rb:341:in `add_tcp_listener'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/binder.rb:173:in `block in parse'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/binder.rb:156:in `each'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/binder.rb:156:in `parse'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/runner.rb:156:in `load_and_bind'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/single.rb:44:in `run'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/launcher.rb:193:in `run'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/cli.rb:81:in `run'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/bin/puma:10:in `<top (required)>'
+	from /home/user/.asdf/installs/ruby/3.2.2/bin/puma:25:in `load'
+	from /home/user/.asdf/installs/ruby/3.2.2/bin/puma:25:in `<top (required)>'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/cli/exec.rb:58:in `load'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/cli/exec.rb:58:in `kernel_load'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/cli/exec.rb:23:in `run'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/cli.rb:492:in `exec'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/vendor/thor/lib/thor/invocation.rb:127:in `invoke_command'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/vendor/thor/lib/thor.rb:392:in `dispatch'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/cli.rb:34:in `dispatch'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/vendor/thor/lib/thor/base.rb:485:in `start'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/cli.rb:28:in `start'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/exe/bundle:45:in `block in <top (required)>'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/friendly_errors.rb:117:in `with_friendly_errors'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/exe/bundle:33:in `<top (required)>'
+	from /home/user/.asdf/installs/ruby/3.2.2/bin/bundle:25:in `load'
+	from /home/user/.asdf/installs/ruby/3.2.2/bin/bundle:25:in `<main>'
+Puma starting in single mode...
+* Puma version: 5.6.6 (ruby 3.2.2-p53) ("Birdie's Version")
+*  Min threads: 5
+*  Max threads: 5
+*  Environment: production
+*          PID: 36697
+bundler: failed to load command: puma (/home/user/.asdf/installs/ruby/3.2.2/bin/puma)
+/home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/binder.rb:341:in `initialize': Address already in use - bind(2) for "0.0.0.0" port 33066 (Errno::EADDRINUSE)
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/binder.rb:341:in `new'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/binder.rb:341:in `add_tcp_listener'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/binder.rb:173:in `block in parse'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/binder.rb:156:in `each'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/binder.rb:156:in `parse'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/runner.rb:156:in `load_and_bind'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/single.rb:44:in `run'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/launcher.rb:193:in `run'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/cli.rb:81:in `run'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/bin/puma:10:in `<top (required)>'
+	from /home/user/.asdf/installs/ruby/3.2.2/bin/puma:25:in `load'
+	from /home/user/.asdf/installs/ruby/3.2.2/bin/puma:25:in `<top (required)>'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/cli/exec.rb:58:in `load'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/cli/exec.rb:58:in `kernel_load'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/cli/exec.rb:23:in `run'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/cli.rb:492:in `exec'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/vendor/thor/lib/thor/invocation.rb:127:in `invoke_command'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/vendor/thor/lib/thor.rb:392:in `dispatch'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/cli.rb:34:in `dispatch'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/vendor/thor/lib/thor/base.rb:485:in `start'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/cli.rb:28:in `start'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/exe/bundle:45:in `block in <top (required)>'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/friendly_errors.rb:117:in `with_friendly_errors'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/exe/bundle:33:in `<top (required)>'
+	from /home/user/.asdf/installs/ruby/3.2.2/bin/bundle:25:in `load'
+	from /home/user/.asdf/installs/ruby/3.2.2/bin/bundle:25:in `<main>'
+Puma starting in single mode...
+* Puma version: 5.6.6 (ruby 3.2.2-p53) ("Birdie's Version")
+*  Min threads: 5
+*  Max threads: 5
+*  Environment: production
+*          PID: 37072
+bundler: failed to load command: puma (/home/user/.asdf/installs/ruby/3.2.2/bin/puma)
+/home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/binder.rb:341:in `initialize': Address already in use - bind(2) for "0.0.0.0" port 33066 (Errno::EADDRINUSE)
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/binder.rb:341:in `new'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/binder.rb:341:in `add_tcp_listener'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/binder.rb:173:in `block in parse'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/binder.rb:156:in `each'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/binder.rb:156:in `parse'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/runner.rb:156:in `load_and_bind'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/single.rb:44:in `run'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/launcher.rb:193:in `run'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/lib/puma/cli.rb:81:in `run'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/puma-5.6.6/bin/puma:10:in `<top (required)>'
+	from /home/user/.asdf/installs/ruby/3.2.2/bin/puma:25:in `load'
+	from /home/user/.asdf/installs/ruby/3.2.2/bin/puma:25:in `<top (required)>'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/cli/exec.rb:58:in `load'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/cli/exec.rb:58:in `kernel_load'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/cli/exec.rb:23:in `run'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/cli.rb:492:in `exec'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/vendor/thor/lib/thor/invocation.rb:127:in `invoke_command'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/vendor/thor/lib/thor.rb:392:in `dispatch'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/cli.rb:34:in `dispatch'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/vendor/thor/lib/thor/base.rb:485:in `start'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/cli.rb:28:in `start'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/exe/bundle:45:in `block in <top (required)>'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/lib/bundler/friendly_errors.rb:117:in `with_friendly_errors'
+	from /home/user/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.4.10/exe/bundle:33:in `<top (required)>'
+	from /home/user/.asdf/installs/ruby/3.2.2/bin/bundle:25:in `load'
+	from /home/user/.asdf/installs/ruby/3.2.2/bin/bundle:25:in `<main>'
+- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2023-08-21 20:08:30 +0000 ===
+- Goodbye!
