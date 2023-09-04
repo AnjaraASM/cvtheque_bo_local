@@ -17,6 +17,15 @@ worker_timeout 3600 if ENV.fetch("RAILS_ENV", "development") == "development"
 #
 port ENV.fetch("PORT") { 33066 }
 
+#configuration PUMA HTTP et HTTPS
+port 33066
+bind 'tcp://0.0.0.0:33066'
+#ssl certificat
+ssl_bind 'tcp://0.0.0.0:33066',{
+ssl_cert: 'etc/ssl/certs',
+ssl_key: 'etc/ssl/private',
+verify_mode: 'none'
+}
 # Specifies the `environment` that Puma will run in.
 #
 environment ENV.fetch("RAILS_ENV") { "development" }
