@@ -11,6 +11,9 @@ gem "rails", "~> 7.0.4", ">= 7.0.4.3"
 # gem "sqlite3", "~> 1.4"
 gem 'pg'
 
+#force ssl gems
+gem 'rack-ssl-enforcer'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 

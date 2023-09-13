@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::API
+
     def encode_token(payload)
         JWT.encode(payload, 'cv-theque@ASM-2023')
     end

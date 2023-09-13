@@ -1,5 +1,4 @@
 require_relative "boot"
-
 require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
@@ -11,6 +10,7 @@ module CvthequeApi
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     #Redirection HTTP vers HTTPS
+    
     #config.middleware.insert_before 0, 'redirect_to_https'
 
     config.force_ssl = false

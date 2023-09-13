@@ -101,4 +101,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  ignore_https_errors = true
+  config.disable_ssl_parser = true
+  config.force_ssl = true
 end

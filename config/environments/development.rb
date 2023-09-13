@@ -10,7 +10,8 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
-
+  #Igniorer les erreur HTTP
+  config.disable_ssl_parser = true
   # Show full error reports.
   config.consider_all_requests_local = true
 
@@ -53,8 +54,8 @@ Rails.application.configure do
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
-  # Configuration NGROK
-  # config.hosts << "5665-154-126-85-47.ngrok-free.app"
+  # Configuration de l'adresse IP
+   config.hosts << "cvtheque.activsolution.fr"
 
   
   # Whitelist one hostname
@@ -92,4 +93,8 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+  # Ignore HTTP and HTTPS errors
+  #ignore_https_errors = true
+  #config.disable_ssl_parser = true
+  config.force_ssl = true if ENV.fetch('SSL', nil) == "true"
 end

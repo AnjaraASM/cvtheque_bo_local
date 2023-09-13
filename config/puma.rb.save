@@ -1,8 +1,30 @@
 # Puma can serve each request in a thread from an internal thread pool.
 # Config Parameters
+app_root = ENV['APP_ROOT'] || '.'
+rails_env = ENV['RAILS_ENV'] || 'production'
+ip_addr = ENV['IP_ADDR'] || '192.168.200.15'
+port = ENV['PORT'] || 33000
+ssl_key = ENV['SSL_KEY']
+ssl_cert = ENV['SSL_CERT']
+
 
 # Set Puma parameters
-# Config Parameters
+preload_app!
+rackup DefaultRackup
+environment rails_env
+pidfile "#{app_root}/tmp/pids/puma.pid"
+state_path "#{app_root}/tmp/pids/puma.state"
+threads 0, 16
+workers 2
+stdout_redirect "#{app_root}/log/puma.log", "#{app_root}/log/puma.err", true if rails_env.downcase == 'production'
+
+# HTTP or HTTPS
+if ssl_key.present? && ssl_cert.present?
+  bind "ssl://#{ip_addr}:#{port}?key=#{ssl_key}&cert=#{ssl_cert}"
+else
+  bind "tcp://#{ip_addr}:#{port}"
+end
+
 
 # The `threads` method setting takes two numbers: a minimum and maximum.
 # Any libraries that use thread pools should be configured to match
@@ -20,12 +42,7 @@ worker_timeout 3600 if ENV.fetch("RAILS_ENV", "development") == "development"
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 #
-#igniorer les ERREUR HTTP
-#force_ssl = true
-#disable_ssl_parser =true
-#ssl_options = { on_error: :ignore }
-
-port ENV.fetch("PORT") { 33066 }
+port ENV.fetch("PORT") { 3000 }
 #configuration PUMA relation
 
 # Specifies the `environment` that Puma will run in.
