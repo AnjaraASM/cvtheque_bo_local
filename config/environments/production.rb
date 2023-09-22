@@ -6,6 +6,9 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
+  #configuration  carrierewave
+  config.serve_static_files = false
+
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
@@ -16,7 +19,10 @@ Rails.application.configure do
   config.secret_key_base = ENV["SECRET_KEY_BASE"]
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local = false
+  
+  #Igniorer les erreur SSL
+  config.disable_ssl_parser = true
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
@@ -100,8 +106,10 @@ Rails.application.configure do
   end
 
   # Do not dump schema after migrations.
-  config.active_record.dump_schema_after_migration = false
-  ignore_https_errors = true
-  config.disable_ssl_parser = true
-  config.force_ssl = true
+  #config.active_record.dump_schema_after_migration = false
+  #ignore_https_errors = true
+  #config.disable_ssl_parser = true
+  #config.force_ssl = true
+  config.force_ssl = true if ENV.fetch('SSL', nil) == "true"
+  config.hosts << "cvtheque.activsolution.fr"
 end

@@ -3,6 +3,7 @@ class CreateExperiences < ActiveRecord::Migration[7.0]
     create_table :experiences do |t|
       t.string :societe
       t.string :datexp
+      t.string :datefin
       t.text :descriptionexp
 
       t.timestamps

@@ -46,6 +46,6 @@ class DiplomesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def diplome_params
-      params.permit(:ecole, :datecole, :descriptionecole, :cv_id)
+      params.permit(:ecole, :datecole, :datefinecole, :descriptionecole, :cv_id)
     end
 end

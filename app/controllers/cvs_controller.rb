@@ -50,11 +50,15 @@ class CvsController < ApplicationController
   # POST /cvs
   def create
     @cv = Cv.new(cv_params)
-
+    @validation = Cv.where(email: cv_params[:email])
+    if @validation.present?
+       render json: {message: 'Email deja dans la base de donnée', color: 'alert alert-waring'}, status: 203
+    else
     if @cv.save
       render json: @cv, status: :created, location: @cv
     else
       render json: @cv.errors, status: :unprocessable_entity
+    end
     end
   end
 
@@ -87,7 +91,7 @@ class CvsController < ApplicationController
     def cv_params
       params.permit(:photo, :nomPrenom, :email, :telephone, :age, 
       :adresse, :facebook, :linkedin, :descriptionProfile, :status, 
-      :categorie_cv_id, :disponibility, 
+      :categorie_cv_id, :disponibility, :national,:resume, :prenom, :pretention,
       :photo, :facebook, :linkedin, :aExperience, :nationalite, :contrat, :sous_category_id)
     end
 end

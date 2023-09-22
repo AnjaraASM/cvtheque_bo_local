@@ -60,6 +60,6 @@ class DemandLoginsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def demand_login_params
-      params.permit(:name, :email, :object, :description, :lu, :numero, :pays, :adresse, :ip => [])
+      params.permit(:name, :email, :object, :description, :lu, :prenom, :site, :priorisation, :post, :numero, :pays, :adresse, :ip => [])
     end
 end

@@ -1,5 +1,6 @@
 class Cv < ApplicationRecord
     mount_uploader :photo, PhotoUploader
+    mount_uploader :resume, ResumeUploader
     belongs_to :categorie_cv, optional: :true
     belongs_to :sous_categorie, optional: true
     has_many :experiences, dependent: :destroy
