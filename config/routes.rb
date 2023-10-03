@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  
+  #Configuration des routes des image en production
+  #get 'uploads/*file', to: 'uploads#show'  
   # root "articles#index"
 
   post "/connection", to: "users#login"

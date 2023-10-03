@@ -6,9 +6,14 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
-  #configuration  carrierewave
-  config.serve_static_files = false
 
+  #configuration de debug rails environement de production
+  #config.log_level = :debug
+  #configuration  carrierewave
+  config.serve_static_files = true
+  config.serve_static_assets = true
+  config.public = true
+  
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
@@ -19,7 +24,7 @@ Rails.application.configure do
   config.secret_key_base = ENV["SECRET_KEY_BASE"]
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local = false
+  config.consider_all_requests_local = true
   
   #Igniorer les erreur SSL
   config.disable_ssl_parser = true
@@ -52,7 +57,7 @@ Rails.application.configure do
 
   # Include generic and useful information about system operation, but avoid logging too much
   # information to avoid inadvertent exposure of personally identifiable information (PII).
-  config.log_level = :info
+  config.log_level = :debug
 
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
@@ -89,8 +94,8 @@ Rails.application.configure do
     address:              'smtp-relay.brevo.com',
     port:                 587,
     domain:               'brevo.com',
-    user_name:            'devasm2022@gmail.com',
-    password:             'JYwEMO6N2TCL3m5R',
+    user_name:            'contact@activsolution.fr',
+    password:             '9DwfQ8Xt5KxJOzNr',
     authentication:       :plain,
     enable_starttls_auto: true
   }

@@ -79,8 +79,8 @@ Rails.application.configure do
     address:              'smtp-relay.brevo.com',
     port:                 587,
     domain:               'brevo.com',
-    user_name:            'devasm2022@gmail.com',
-    password:             'JYwEMO6N2TCL3m5R',
+    user_name:            'contact@activsolution.fr',
+    password:             '9DwfQ8Xt5KxJOzNr',
     authentication:       :plain,
     enable_starttls_auto: true
   }
