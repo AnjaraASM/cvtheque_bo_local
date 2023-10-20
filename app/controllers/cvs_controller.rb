@@ -12,6 +12,17 @@ class CvsController < ApplicationController
     @profile = Cv.all.count
     render json: @profile
   end
+  #route carrierwave environement de production carrierwave 
+  def show_photo
+  @cv = Cv.find(params[:id])
+  @photo = @cv.photos.find_by(filename: params[:photo])
+
+  if @photo
+    render 'cvs/show_photo', locals: { photo: @photo }
+  else
+    render_404
+  end
+  end
 
   #methode de recherche
   def search 

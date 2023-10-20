@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   resources :cvs
   resources :categorie_cvs
   resources :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html=
+  
   # Defines the root path route ("/")
   #Configuration des routes des image en production
   #get 'uploads/*file', to: 'uploads#show'  

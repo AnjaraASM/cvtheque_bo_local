@@ -2,10 +2,15 @@ class CreateUsers < ActiveRecord::Migration[7.0]
   def change
     create_table :users do |t|
       t.string :name
+      t.string :prenom
+      t.boolean :notifier, default: true
       t.string :email
       t.string :role
       t.string :phone
       t.string :societe
+      t.string :site
+      t.string :post
+      t.string :priorisation
       t.string :pass
       t.date :expire
       t.string :pays

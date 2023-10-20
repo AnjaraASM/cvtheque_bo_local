@@ -1,6 +1,7 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time
@@ -55,7 +56,7 @@ Rails.application.configure do
   config.active_record.verbose_query_logs = true
 
   # Configuration de l'adresse IP
-   config.hosts << "cvtheque.activsolution.fr"
+   config.hosts << "cvtheque.activsolution.fr:33066"
 
   
   # Whitelist one hostname
@@ -78,11 +79,15 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              'smtp-relay.brevo.com',
     port:                 587,
-    domain:               'brevo.com',
+    domain:               'activsolution.fr',
     user_name:            'contact@activsolution.fr',
     password:             '9DwfQ8Xt5KxJOzNr',
     authentication:       :plain,
-    enable_starttls_auto: true
+    enable_starttls_auto: true,
+	spf: {
+    		domain: 'activsolution.fr',
+    		include_spf: true
+  	}
   }
 
   # Raises error for missing translations.

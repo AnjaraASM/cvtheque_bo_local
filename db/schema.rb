@@ -160,10 +160,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_15_070811) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.string "prenom"
+    t.boolean "notifier", default: true
     t.string "email"
     t.string "role"
     t.string "phone"
     t.string "societe"
+    t.string "site"
+    t.string "post"
+    t.string "priorisation"
     t.string "pass"
     t.date "expire"
     t.string "pays"
