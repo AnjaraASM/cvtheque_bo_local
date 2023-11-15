@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   post "/connection", to: "users#login"
   get "/ddemande", to: "demand_logins#last"
+  post "/recherche", to: "cvs#candidatsearch"
   get "/notify", to: "demand_logins#notify"
   get "/search", to: "cvs#search"
   get "/cvall", to: "cvs#cvcounter"

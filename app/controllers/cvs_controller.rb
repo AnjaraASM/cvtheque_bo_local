@@ -24,7 +24,7 @@ class CvsController < ApplicationController
   end
   end
 
-  #methode de recherche
+  #methode de recherche par ID
   def search 
     @cv = Cv.where(id: params[:id])
 
@@ -32,6 +32,26 @@ class CvsController < ApplicationController
       render json: {search: @cv}, status: 200
     else
       render json: {message: "Aucune resultat"}, status: 204
+    end
+
+  end
+
+  #Recherche de candidat
+
+  def candidatsearch
+    cv = Cv.all
+    cv = cv.where(categorie_cv_id: params[:categorie_cv_id]) if params[:categorie_cv_id].present?
+    cv = cv.where(national: params[:national]) if params[:national].present?
+    cv = cv.where(aExperience: params[:aExperience]) if params[:aExperience].present?
+    cv = cv.where(disponibility: params[:disponibility]) if params[:disponibility].present?
+    cv = cv.where(contrat: params[:contrat]) if params[:contrat].present?
+    cv = cv.where(sous_category_id: params[:sous_category_id]) if params[:sous_category_id].present?
+    cv = cv.where(nationalite: params[:nationalite]) if params[:nationalite].present?
+  
+    if cv
+      render json: { recherche: cv }
+    else
+      render json: { message: 'Aucune resultat' }, status: 204
     end
 
   end
