@@ -19,6 +19,15 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every :hour do
-    runner "User.send_expiry_email"
+
+#Email d'expiration de compte utilisateur
+
+every :day, at: '12:00' do
+  # Obtenez la liste des utilisateurs dont le compte expire dans les 3 prochains jours
+  users = User.where("expire <= ?", 3.days.from_now)
+
+  # Envoyez un email à chaque utilisateur
+  users.each do |user|
+    UserMailer.expiry_email(user: user).deliver_later
+  end
 end
