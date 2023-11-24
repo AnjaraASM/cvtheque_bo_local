@@ -22,12 +22,13 @@
 
 #Email d'expiration de compte utilisateur
 
-every :day, at: '12:00' do
+every  1.minute do
+  runner "puts 'Ceci est un message affiché toutes les minutes'"
   # Obtenez la liste des utilisateurs dont le compte expire dans les 3 prochains jours
-  users = User.where("expire <= ?", 3.days.from_now)
+  runner "users = User.where('expire <= ?', 3.days.from_now)"
 
   # Envoyez un email à chaque utilisateur
-  users.each do |user|
-    UserMailer.expiry_email(user: user).deliver_later
-  end
+  runner "users.each do |user| UserMailer.expiry_email(user: user).deliver_later end"
+
 end
+

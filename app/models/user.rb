@@ -1,4 +1,20 @@
 class User < ApplicationRecord
+    require 'rufus-scheduler'
+
+    scheduler = Rufus::Scheduler.new
+    #configuration de la tache cron
+
+    scheduler.every '1d' do
+	# Obtenez la liste des utilisateurs dont le compte expire dans les 3 prochains jours
+  	users = User.where("expire <= ?", 3.days.from_now)
+	
+  	# Envoyez un email à chaque utilisateur
+ 	users.each do |usr|
+	   #puts "============================================#{usr.name}=========================================================================="
+    	   UsermailerMailer.with(user: usr).expiry_email.deliver_now
+  	end
+    end
+
     validate :account_not_expired
 
     acts_as_token_authenticatable
