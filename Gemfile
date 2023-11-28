@@ -47,7 +47,6 @@ group :development, :test do
 end
 
 # Renvoie de notification pour les utilisateur
-gem 'whenever'
 gem 'rufus-scheduler', '~> 3.9', '>= 3.9.1'
 
 # Indispensable gem

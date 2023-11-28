@@ -79,7 +79,6 @@ GEM
       image_processing (~> 1.1)
       marcel (~> 1.0.0)
       ssrf_filter (~> 1.0)
-    chronic (0.10.2)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     date (3.3.3)
@@ -213,8 +212,6 @@ GEM
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    whenever (1.0.0)
-      chronic (>= 0.6.3)
     zeitwerk (2.6.11)
 
 PLATFORMS
@@ -237,7 +234,6 @@ DEPENDENCIES
   simple_token_authentication
   table_print
   tzinfo-data
-  whenever
 
 RUBY VERSION
    ruby 3.2.2p53
