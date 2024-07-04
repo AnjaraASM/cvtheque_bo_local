@@ -12,5 +12,6 @@ class Cv < ApplicationRecord
     has_many :favorites, dependent: :destroy
     has_many :comments, dependent: :destroy
     has_many :views
+    has_many :ratings
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_15_070811) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_06_134322) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,6 +54,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_15_070811) do
     t.string "disponibility"
     t.integer "sous_category_id"
     t.text "resume"
+    t.string "telephone1"
+    t.string "telephone2"
+    t.string "datedispo"
   end
 
   create_table "demand_logins", force: :cascade do |t|
@@ -139,6 +142,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_15_070811) do
     t.text "description"
     t.integer "user_id"
     t.boolean "lu", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer "rate"
+    t.integer "user_id"
+    t.integer "cv_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

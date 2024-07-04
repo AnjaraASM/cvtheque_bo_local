@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ratings
   resources :profil_ideals
   resources :sous_categories
   resources :views
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   post "/connection", to: "users#login"
+  get "/ratined", to: "ratings#ratined"
   get "/ddemande", to: "demand_logins#last"
   post "/recherche", to: "cvs#candidatsearch"
   get "/notify", to: "demand_logins#notify"

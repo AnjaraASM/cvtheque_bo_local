@@ -1,7 +1,8 @@
 # Puma can serve each request in a thread from an internal thread pool.
-# Config Parameters
+# Config Parameters ssl
 
-# Set Puma parameters
+bind 'ssl://212.83.181.22:33066?cert=%2Fhome%2Fuser%2Fcvtheque%2Fserver.crt&key=%2Fhome%2Fuser%2Fcvtheque%2Fserver.key&verify_mode=none'
+
 # Config Parameters
 
 # The `threads` method setting takes two numbers: a minimum and maximum.

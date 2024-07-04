@@ -3,7 +3,7 @@ class CvsController < ApplicationController
 
   # GET /cvs
   def index
-    @cvs = Cv.all.reorder('id DESC')
+    @cvs = Rails.cache.fetch('cvs', expire_in: 24.hours) do Cv.all.reorder('id DESC').to_a end
     
     render json: @cvs
   end
@@ -35,8 +35,11 @@ class CvsController < ApplicationController
     end
 
   end
+  #Search par nom et prenom des candidat
 
-  #Recherche de candidat
+  
+
+  #Recherche filtre des candidats
 
   def candidatsearch
     cv = Cv.all
@@ -68,15 +71,25 @@ class CvsController < ApplicationController
     
 
   # GET /cvs/1
-  def show
+def show
+  cache_key = "cv/#{params[:id]}/show"
+
+  cached_response = Rails.cache.fetch(cache_key, expires_in: 12.hours) do
     @exp = @cv.experience_ids
     @diplo = @cv.diplome_ids
     @langage = @cv.langage_ids
     @loisir = @cv.loisir_ids
     @info = @cv.informatique_ids
     @comment = @cv.comment_ids
-    render json: {cv: @cv, exp: @exp, diplo: @diplo, langage: @langage, loisir: @loisir, info: @info, comment: @comment}
+    @rating = Rating.all.count
+    @cvRat = @cv.ratings.count
+
+    { cv: @cv, rating: @rating, cvRat: @cvRat, exp: @exp, diplo: @diplo, langage: @langage, loisir: @loisir, info: @info, comment: @comment }
   end
+
+  render json: cached_response
+end
+
 
   # POST /cvs
   def create
@@ -121,8 +134,8 @@ class CvsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def cv_params
       params.permit(:photo, :nomPrenom, :email, :telephone, :age, 
-      :adresse, :facebook, :linkedin, :descriptionProfile, :status, 
+      :adresse, :facebook, :linkedin, :descriptionProfile, :status, :datedispo, 
       :categorie_cv_id, :disponibility, :national,:resume, :prenom, :pretention,
-      :photo, :facebook, :linkedin, :aExperience, :nationalite, :contrat, :sous_category_id)
+      :photo, :facebook, :linkedin, :aExperience, :nationalite, :contrat, :sous_category_id, :telephone1, :telephone2)
     end
 end

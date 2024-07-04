@@ -5,6 +5,10 @@ ruby "~>3.2.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"
+
+#disable SSL verification
+gem 'faraday'
+
 # gem 'pg', '~> 1.5', '>= 1.5.3'
 
 # Use sqlite3 as the database for Active Record
@@ -53,6 +57,11 @@ gem 'rufus-scheduler', '~> 3.9', '>= 3.9.1'
 gem 'simple_token_authentication'
 gem 'table_print'
 gem 'jwt'
+
+#gem traitement PDF
+gem 'pdf-reader'
+gem 'pdf-inspector', '~> 1.3'
+gem 'docsplit', '~> 0.7.6'
 
 
 #uploader une image

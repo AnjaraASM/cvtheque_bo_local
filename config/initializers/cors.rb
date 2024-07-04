@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "www.activsolution.fr/cvtheque"
+    origins "https://www.activsolution.fr", "localhost:3000", "https://activsolution.fr"
 
     resource "*",
       headers: :any,

@@ -1,40 +1,88 @@
+<table cellpadding="0" cellspacing="0" class="es-content" align="center" role="none"
+   style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%">
+   <tr>
+      <td align="center" style="padding:0;Margin:0">
+         <table bgcolor="#ffffff" class="es-content-body" align="center" cellpadding="0" cellspacing="0" role="none"
+            style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;width:600px">
+            <tr>
+               <td align="left"
+                  style="Margin:0;padding-bottom:10px;padding-top:20px;padding-left:20px;padding-right:20px">
 
-<tbody>
-<tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-    <td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
-    <h2>Bonjour! </h2>
-    <h3>Bonjour
-        <%= @user.name %> votre demande d'entretien avec le CV id : <%= @cv.id %> est en cours de validation
-    </h3>
-    </td>
-</tr>
-<tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-    <td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
-    <strong>
-        Demande d'entretien' de la part de <%= @user.name %> :
-    </strong>
-    <br/>
-    <div>
-        <p>Nom et prénom : <%= @user.name %> </p>
-        <P>E-mail : <%= @user.email %></p>
-        <P>Numéro téléphone : <%= @user.phone %></p>
-        <p>Société : <%= @user.societe %></p>
-    </div>
-    <hr/>
-    <strong>
-        Date de rendez-vous :
-    </strong>
-    <br/>
-    <div>
-        <strong>- <%= @entretien.drdv %> </strong>
-        <strong>à <%= @entretien.hrdv %></strong>
-    </div>
-    </td>
-</tr>
-<tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-    <td class="content-block" itemprop="handler" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;">
-    <a href="https://activsolution.fr/cvtheque/notifications" class="btn-primary" itemprop="url" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; col>
-        Allez sur le site
-    </a>
-    </td>
-</tr>
+                  <table cellpadding="0" cellspacing="0" width="100%" role="none"
+                     style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                     <tr>
+                        <td align="center" valign="top" style="padding:0;Margin:0;width:560px">
+                           <table cellpadding="0" cellspacing="0" width="100%" role="presentation"
+                              style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                              <tr>
+                                 <br />
+                                 <td align="center" class="es-m-p0r es-m-p0l"
+                                    style="Margin:0;padding-top:5px;padding-bottom:5px;padding-left:40px;padding-right:40px">
+                                    <p
+                                       style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">
+                                       <strong>Bonjour <%= @user.name %> <%= @user.prenom %>! </strong> <br/>
+                                       Votre demande d'entretien avec le CV id : <%= @cv.id %> est en cours de validation
+                                    </p>
+                                 </td>
+                              </tr>
+
+                           </table>
+                        </td>
+                     </tr>
+                  </table>
+               </td>
+            </tr>
+
+            <tr>
+               <td class="esdev-adapt-off" align="left"
+                  style="Margin:0;padding-top:10px;padding-bottom:10px;padding-left:20px;padding-right:20px">
+                  <table cellpadding="0" cellspacing="0" class="esdev-mso-table" role="none"
+                     style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;width:560px">
+                     <tr>
+
+                        <td class="esdev-mso-td" valign="top" style="padding:0;Margin:0">
+                           <table cellpadding="0" cellspacing="0" class="es-left" align="left" role="none"
+                              style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:left">
+                              <tr>
+                                 <td align="center" style="padding:0;Margin:0;width:100%">
+                                    <table cellpadding="0" cellspacing="0" width="100%" role="presentation"
+                                       style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                       <tr>
+                                          <td align="left" style="padding:0;Margin:0">
+                                             <p
+                                                style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">
+                                                <strong>Date de rendez-vous :</strong>
+                                             </p>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td align="left" style="padding:0;Margin:0;padding-top:5px">
+                                             <p
+                                                style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">
+                                                De <%= @entretien.drdv %> 
+                                                à <%= @entretien.hrdv %>
+                                             </p>
+                                          </td>
+                                       </tr>
+                                    </table>
+                                 </td>
+                              </tr>
+                           </table>
+                        </td>
+
+                     </tr>
+                  </table>
+               </td>
+            </tr>
+            <tr>
+            <tr>
+               <td align="center" style="padding:0;Margin:0;padding-top:10px;padding-bottom:10px">
+                  <br />
+                  <span class="es-button-border"
+                     style="border-style:solid;border-color:#263f8c;background:#263f8c;border-width:0px;display:inline-block;border-radius:5px;width:auto"><a
+                        href="https://www.activsolution.fr/cvtheque" class="es-button" target="_blank"
+                        style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:20px;padding:10px 30px 10px 30px;display:inline-block;background:#263f8c;border-radius:5px;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-weight:normal;font-style:normal;line-height:24px;width:auto;text-align:center;mso-padding-alt:0;mso-border-alt:10px solid #5C68E2">
+                        Allez sur le site</a></span>
+               </td>
+            </tr>
+   </tr>
