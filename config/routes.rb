@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   post "/recherche", to: "cvs#candidatsearch"
   get "/notify", to: "demand_logins#notify"
   get "/search", to: "cvs#search"
+  get '/searchmultiple', to: 'cvs#searchmultiple'
   get "/cvall", to: "cvs#cvcounter"
   get "/catcounter", to: "categorie_cvs#catCounter"
   get "/usersearch", to: "users#search"

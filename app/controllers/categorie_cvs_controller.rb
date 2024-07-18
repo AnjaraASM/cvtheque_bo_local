@@ -1,24 +1,30 @@
 class CategorieCvsController < ApplicationController
-  before_action :set_categorie_cv, only: %i[ show update destroy ]
+  before_action :set_categorie_cv, only: %i[show update destroy]
 
   # GET /categorie_cvs
   def index
-    @categorie_cvs = CategorieCv.all.reorder('id DESC')
-
+    @categorie_cvs = CategorieCv.all.order(id: :desc)
     render json: @categorie_cvs
+  rescue => e
+    render json: { error: e.message }, status: :internal_server_error
   end
 
+  # GET /categorie_cvs/count
   def catCounter
-    @categorie = CategorieCv.count
-    render json: @categorie
+    @categorie_count = CategorieCv.count
+    render json: { count: @categorie_count }
+  rescue => e
+    render json: { error: e.message }, status: :internal_server_error
   end
 
   # GET /categorie_cvs/1
   def show
-    @cvCount = @categorie_cv.cv_ids.count
-    @cv = @categorie_cv.cv_ids
-    @sousCat = @categorie_cv.sous_category
-    render json: {cat: @categorie_cv, counter: @cvCount, cvArr: @cv, sousCategorie: @sousCat}
+    @cv_count = @categorie_cv.cv_ids.count
+    @cv_ids = @categorie_cv.cv_ids
+    @sous_categories = @categorie_cv.sous_category
+    render json: { cat: @categorie_cv, counter: @cv_count, cvArr: @cv_ids, sousCategorie: @sous_categories }
+  rescue => e
+    render json: { error: e.message }, status: :internal_server_error
   end
 
   # POST /categorie_cvs
@@ -30,6 +36,8 @@ class CategorieCvsController < ApplicationController
     else
       render json: @categorie_cv.errors, status: :unprocessable_entity
     end
+  rescue => e
+    render json: { error: e.message }, status: :internal_server_error
   end
 
   # PATCH/PUT /categorie_cvs/1
@@ -39,21 +47,29 @@ class CategorieCvsController < ApplicationController
     else
       render json: @categorie_cv.errors, status: :unprocessable_entity
     end
+  rescue => e
+    render json: { error: e.message }, status: :internal_server_error
   end
 
   # DELETE /categorie_cvs/1
   def destroy
     @categorie_cv.destroy
+    head :no_content
+  rescue => e
+    render json: { error: e.message }, status: :internal_server_error
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_categorie_cv
-      @categorie_cv = CategorieCv.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def categorie_cv_params
-      params.permit(:categorie, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_categorie_cv
+    @categorie_cv = CategorieCv.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'CategorieCv not found' }, status: :not_found
+  end
+
+  # Only allow a list of trusted parameters through.
+  def categorie_cv_params
+    params.require(:categorie_cv).permit(:categorie, :description)
+  end
 end

@@ -35,6 +35,36 @@ class CvsController < ApplicationController
     end
 
   end
+
+  #methode de recherche par nom
+  def searchnom 
+    @cv = Cv.where(nom: params[:nom])
+
+    if @cv && @cv.exists?
+      render json: {search: @cv}, status: 200
+    else
+      render json: {message: "Aucune resultat"}, status: 204
+    end
+
+  end
+
+  #Recherche multilple
+  def searchmultiple
+    cv = Cv.all
+    cv = cv.where(id: params[:id]) if params[:id].present?
+    cv = cv.where(nomPrenom: params[:nomPrenom]) if params[:nomPrenom].present?
+    cv = cv.where(nom: params[:nom]) if params[:nom].present?
+    cv = cv.where(prenom: params[:prenom]) if params[:prenom].present?
+    cv = cv.where(email: params[:email]) if params[:email].present?
+    cv = cv.where(adresse: params[:adresse]) if params[:adresse].present?
+
+    if cv
+      render json: { searchmultiple: cv }
+    else
+      render json: { message: 'Aucune resultat' }, status: 204
+    end
+  end
+
   #Search par nom et prenom des candidat
 
   
@@ -74,7 +104,7 @@ class CvsController < ApplicationController
 def show
   cache_key = "cv/#{params[:id]}/show"
 
-  cached_response = Rails.cache.fetch(cache_key, expires_in: 12.hours) do
+  cached_response = Rails.cache.fetch(cache_key, expires_in: 2.minutes) do
     @exp = @cv.experience_ids
     @diplo = @cv.diplome_ids
     @langage = @cv.langage_ids
