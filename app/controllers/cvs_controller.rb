@@ -8,6 +8,30 @@ class CvsController < ApplicationController
     render json: @cvs
   end
 
+  # GET / cvs / Pagination
+  def cvs_pagination
+    page = (params[:page] || 1).to_i
+    per_page = (params[:per_page] || 20).to_i
+
+    total_count = Cv.count
+    total_pages = (total_count / per_page.to_f).ceil
+    offset = (page - 1) * per_page
+
+    cvs = Cv.order('id DESC').limit(per_page).offset(offset)
+
+    render json: {
+      cvs: cvs,
+      total_pages: total_pages,
+      current_page: page,
+      per_page: per_page
+    }
+  end
+  
+  def cvs_all
+    cvs = Cv.all.reorder('id DESC').to_a
+    render json: @cvs
+  end
+
   def cvcounter
     @profile = Cv.all.count
     render json: @profile

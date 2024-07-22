@@ -1,15 +1,14 @@
 class DemandLoginsController < ApplicationController
-  before_action :set_demand_login, only: %i[ show update destroy ]
+  before_action :set_demand_login, only: %i[show update destroy]
 
   # GET /demand_logins
   def index
     @demand_logins = DemandLogin.all.reorder('id DESC')
-
     render json: @demand_logins
   end
 
   def notify
-    @notify = DemandLogin.all.where("lu": false).count
+    @notify = DemandLogin.where(lu: false).count
     render json: @notify
   end
 
@@ -26,10 +25,10 @@ class DemandLoginsController < ApplicationController
   # POST /demand_logins
   def create
     @demand_login = DemandLogin.new(demand_login_params)
-    @administrateur = User.where(role: 'Administrateur')
+    @administrateurs = User.where(role: 'Administrateur')
 
     if @demand_login.save
-      @administrateur.each do |admin|
+      @administrateurs.each do |admin|
         DemandeLoginMailer.with(demand_login: @demand_login, admini: admin).demande_login.deliver_later
       end
       render json: @demand_login, status: :created, location: @demand_login
@@ -53,13 +52,14 @@ class DemandLoginsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_demand_login
-      @demand_login = DemandLogin.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def demand_login_params
-      params.permit(:name, :email, :object, :description, :lu, :prenom, :site, :priorisation, :post, :numero, :pays, :adresse, :ip => [])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_demand_login
+    @demand_login = DemandLogin.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def demand_login_params
+    params.permit(:name, :email, :object, :description, :lu, :prenom, :site, :priorisation, :post, :numero, :pays, :adresse, ip: [])
+  end
 end

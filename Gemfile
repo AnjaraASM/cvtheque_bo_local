@@ -69,3 +69,5 @@ gem 'carrierwave', '>= 3.0.0.beta', '< 4.0'
 
 #redimensionner une image
 gem 'mini_magick'
+
+gem 'kaminari'

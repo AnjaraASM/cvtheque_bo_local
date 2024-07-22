@@ -27,8 +27,10 @@ Rails.application.routes.draw do
   get "/ddemande", to: "demand_logins#last"
   post "/recherche", to: "cvs#candidatsearch"
   get "/notify", to: "demand_logins#notify"
+  get '/cvs_pagination', to: 'cvs#cvs_pagination'
   get "/search", to: "cvs#search"
   get '/searchmultiple', to: 'cvs#searchmultiple'
+  get "/cvs_all", to: "cvs#cvs_all"
   get "/cvall", to: "cvs#cvcounter"
   get "/catcounter", to: "categorie_cvs#catCounter"
   get "/usersearch", to: "users#search"
