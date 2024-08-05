@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   resources :langages
   resources :diplomes
   resources :experiences
-  resources :cvs
+  # resources :cvs
+  resources :cvs, only: [:index, :show, :create, :update, :destroy]
   resources :categorie_cvs
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html=
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
   post "/recherche", to: "cvs#candidatsearch"
   get "/notify", to: "demand_logins#notify"
   get '/cvs_pagination', to: 'cvs#cvs_pagination'
+  get '/cvs_page', to: 'cvs#cvs_page'
   get "/search", to: "cvs#search"
   get '/searchmultiple', to: 'cvs#searchmultiple'
   get "/cvs_all", to: "cvs#cvs_all"

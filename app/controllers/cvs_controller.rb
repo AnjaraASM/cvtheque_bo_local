@@ -26,6 +26,29 @@ class CvsController < ApplicationController
       per_page: per_page
     }
   end
+
+  # GET / cvs / Pagination2
+  def cvs_page
+    page = (params[:page] || 1).to_i
+    per_page = (params[:per_page] || 20).to_i
+    category_id = params[:category_id]
+
+    cvs_scope = Cv.order('id DESC')
+    cvs_scope = cvs_scope.where(categorie_cv_id: category_id) if category_id.present? && category_id != '0'
+
+    total_count = cvs_scope.count
+    total_pages = (total_count / per_page.to_f).ceil
+    offset = (page - 1) * per_page
+
+    cvs = cvs_scope.limit(per_page).offset(offset)
+
+    render json: {
+      cvs: cvs,
+      total_pages: total_pages,
+      current_page: page,
+      per_page: per_page
+    }
+  end
   
   def cvs_all
     cvs = Cv.all.reorder('id DESC').to_a
