@@ -49,6 +49,20 @@ class CvsController < ApplicationController
       per_page: per_page
     }
   end
+
+   # GET /cvs_count
+  def count
+    status = params[:status]
+    if status.present?
+      # Convert status to boolean if it's 'true' or 'false'
+      status = ActiveRecord::Type::Boolean.new.cast(status)
+      total_count = Cv.where(status: status).count
+    else
+      total_count = Cv.count
+    end
+
+    render json: { count: total_count }
+  end
   
   def cvs_all
     cvs = Cv.all.reorder('id DESC').to_a
@@ -148,20 +162,55 @@ class CvsController < ApplicationController
     
 
   # GET /cvs/1
+# def show
+#   cache_key = "cv/#{params[:id]}/show"
+
+#   cached_response = Rails.cache.fetch(cache_key, expires_in: 2.minutes) do
+#     @exp = @cv.experience_ids
+#     @diplo = @cv.diplome_ids
+#     @langage = @cv.langage_ids
+#     @loisir = @cv.loisir_ids
+#     @info = @cv.informatique_ids
+#     @comment = @cv.comment_ids
+#     @rating = Rating.all.count
+#     @cvRat = @cv.ratings.count
+
+#     { cv: @cv, rating: @rating, cvRat: @cvRat, exp: @exp, diplo: @diplo, langage: @langage, loisir: @loisir, info: @info, comment: @comment }
+#   end
+
+#   render json: cached_response
+# end
+
 def show
   cache_key = "cv/#{params[:id]}/show"
 
   cached_response = Rails.cache.fetch(cache_key, expires_in: 2.minutes) do
-    @exp = @cv.experience_ids
-    @diplo = @cv.diplome_ids
-    @langage = @cv.langage_ids
-    @loisir = @cv.loisir_ids
-    @info = @cv.informatique_ids
-    @comment = @cv.comment_ids
-    @rating = Rating.all.count
-    @cvRat = @cv.ratings.count
+    begin
+      @exp = @cv.experiences.pluck(:id)
+      @diplo = @cv.diplomes.pluck(:id)
+      @langage = @cv.langages.pluck(:id)
+      @loisir = @cv.loisirs.pluck(:id)
+      @info = @cv.informatiques.pluck(:id)
+      @comment = @cv.comments.pluck(:id) || []
 
-    { cv: @cv, rating: @rating, cvRat: @cvRat, exp: @exp, diplo: @diplo, langage: @langage, loisir: @loisir, info: @info, comment: @comment }
+      @rating = Rating.count
+      @cvRat = @cv.ratings.count
+
+      {
+        cv: @cv,
+        rating: @rating,
+        cvRat: @cvRat,
+        exp: @exp,
+        diplo: @diplo,
+        langage: @langage,
+        loisir: @loisir,
+        info: @info,
+        comment: @comment
+      }
+    rescue StandardError => e
+      logger.error "Error processing CV: #{e.message} - CV ID: #{params[:id]}"
+      raise
+    end
   end
 
   render json: cached_response

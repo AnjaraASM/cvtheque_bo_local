@@ -10,8 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_06_134322) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_06_081004) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
 
   create_table "categorie_cvs", force: :cascade do |t|
@@ -23,8 +24,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_06_134322) do
 
   create_table "comments", force: :cascade do |t|
     t.text "commentaire"
-    t.string "user_id"
-    t.string "cv_id"
+    t.bigint "user_id"
+    t.bigint "cv_id"
     t.string "lu"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -171,10 +172,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_06_134322) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.string "prenom"
+    t.boolean "notifier", default: true
     t.string "email"
     t.string "role"
     t.string "phone"
     t.string "societe"
+    t.string "site"
+    t.string "post"
+    t.string "priorisation"
     t.string "pass"
     t.date "expire"
     t.string "pays"

@@ -1,81 +1,36 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-
   # Settings specified here will take precedence over those in config/application.rb.
 
-  # In the development environment your application's code is reloaded any time
-  # it changes. This slows down response time but is perfect for development
-  # since you don't have to restart the web server when you make code changes.
+  # Reload application code on every request in development
   config.cache_classes = false
 
   # Do not eager load code on boot.
   config.eager_load = false
-  #Igniorer les erreur HTTP
-  config.disable_ssl_parser = true
-  # Show full error reports.
+
+  # Show full error reports
   config.consider_all_requests_local = true
 
   # Enable server timing
   config.server_timing = true
 
-  # Enable/disable caching. By default caching is disabled.
-  # Run rails dev:cache to toggle caching.
+  # Enable caching with memory store if the file tmp/caching-dev.txt exists
   if Rails.root.join("tmp/caching-dev.txt").exist?
+    config.action_controller.perform_caching = true
     config.cache_store = :memory_store
     config.public_file_server.headers = {
       "Cache-Control" => "public, max-age=#{2.days.to_i}"
     }
   else
-    config.action_controller.perform_caching = true
-
+    config.action_controller.perform_caching = false
     config.cache_store = :null_store
   end
-
-  #dossier de mise en cache
-  #config.cache_store = :mem_cache_store
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
-  config.action_mailer.perform_caching = false
-
-  # Print deprecation notices to the Rails logger.
-  config.active_support.deprecation = :log
-
-  # Raise exceptions for disallowed deprecations.
-  config.active_support.disallowed_deprecation = :raise
-
-  # Tell Active Support which deprecation messages to disallow.
-  config.active_support.disallowed_deprecation_warnings = []
-
-  # Raise an error on page load if there are pending migrations.
-  config.active_record.migration_error = :page_load
-
-  # Highlight code that triggered database queries in logs.
-  config.active_record.verbose_query_logs = true
-
-  # Configuration de l'adresse IP
-   config.hosts << "cvtheque.activsolution.fr:33066"
-
-  
-  # Whitelist one hostname
-  # Whitelist a test domain. Rails adds \A and \z around
-  # your regular expressions.
-  # config.hosts.clear
-
-  #configuration maildev
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #     address: "localhost",
-  #     port: 1025,
-  #     enable_starttls_auto: false
-  # }
-  # config.action_mailer.default_url_options = { :host => 'localhost:3001', protocol: 'http' }
-  # E-mail SMTP sendinblue
+  # Handle mailer errors
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
@@ -86,23 +41,37 @@ Rails.application.configure do
     user_name:            'contact@activsolution.fr',
     password:             '9DwfQ8Xt5KxJOzNr',
     authentication:       :plain,
-    enable_starttls_auto: true,
-	spf: {
-    		domain: 'activsolution.fr',
-    		include_spf: true
-  	}
+    enable_starttls_auto: true
   }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-  # Raises error for missing translations.
-  # config.i18n.raise_on_missing_translations = true
+  # Print deprecation notices to the Rails logger
+  config.active_support.deprecation = :log
 
-  # Annotate rendered view with file names.
+  # Raise exceptions for disallowed deprecations
+  config.active_support.disallowed_deprecation = :raise
+
+  # Tell Active Support which deprecation messages to disallow
+  config.active_support.disallowed_deprecation_warnings = []
+
+  # Raise an error on page load if there are pending migrations
+  config.active_record.migration_error = :page_load
+
+  # Highlight code that triggered database queries in logs
+  config.active_record.verbose_query_logs = true
+
+  # Configure allowed hosts
+  config.hosts << "cvtheque.activsolution.fr"
+
+  # Ensure HTTPS
+  config.force_ssl = ENV.fetch('SSL', 'false') == 'true'
+
+  # Optionally, you can use `config.ssl_options` for additional SSL options
+  # config.ssl_options = { redirect: { exclude: ->(request) { request.path =~ /health_check/ } } }
+
+  # Annotate rendered view with file names (for debugging purposes)
   # config.action_view.annotate_rendered_view_with_filenames = true
 
-  # Uncomment if you wish to allow Action Cable access from any origin.
+  # Uncomment to allow Action Cable access from any origin
   # config.action_cable.disable_request_forgery_protection = true
-  # Ignore HTTP and HTTPS errors
-  #ignore_https_errors = true
-  #config.disable_ssl_parser = true
-  config.force_ssl = true if ENV.fetch('SSL', nil) == "true"
 end

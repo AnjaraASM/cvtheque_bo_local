@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get "/notify", to: "demand_logins#notify"
   get '/cvs_pagination', to: 'cvs#cvs_pagination'
   get '/cvs_page', to: 'cvs#cvs_page'
+  get '/cvs_count', to: 'cvs#count'
   get "/search", to: "cvs#search"
   get '/searchmultiple', to: 'cvs#searchmultiple'
   get "/cvs_all", to: "cvs#cvs_all"
