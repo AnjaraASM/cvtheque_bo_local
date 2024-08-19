@@ -40,4 +40,5 @@ Rails.application.routes.draw do
   get "/entretienCounter", to: "entretiens#entretienCounter"
   post "/mdpo", to: "users#mdpo"
   post "/notemail", to: "notification#emailNotification"
+  post '/notsendemail', to: 'notification#send_email'
 end

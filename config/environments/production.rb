@@ -56,13 +56,13 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp-relay.brevo.com',
+    address:              'smtp.office365.com',
     port:                 587,
-    domain:               'brevo.com',
+    domain:               'activsolution.fr',
     user_name:            'contact@activsolution.fr',
-    password:             '9DwfQ8Xt5KxJOzNr',
-    authentication:       :plain,
-    enable_starttls_auto: true
+    password:             'Zion1980**',
+    authentication:       'login',
+    enable_starttls_auto: true,
   }
   config.action_mailer.default_url_options = { host: 'cvtheque.activsolution.fr' }
 
