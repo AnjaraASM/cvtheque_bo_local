@@ -41,4 +41,5 @@ Rails.application.routes.draw do
   post "/mdpo", to: "users#mdpo"
   post "/notemail", to: "notification#emailNotification"
   post '/notsendemail', to: 'notification#send_email'
+  post '/notifajoutcv', to: 'notification#ajoutcv'
 end

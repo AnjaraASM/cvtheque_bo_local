@@ -18,6 +18,18 @@ class NotificationController < ApplicationController
         mail(to: 'anjara.dev24@gmail.com', subject: 'CVthèque Notification')
     end
 
+    def ajoutcv
+        user_email = params[:user_email]
+    
+        # Envoi de l'email
+        NotificationMailer.with(user_email: user_email, subject: 'Bienvenu dans CVthèque').notify_ajoutcv.deliver_now
+    
+        # Renvoyer une réponse JSON
+        render json: { message: 'Email envoyé avec succès!' }, status: :ok
+        rescue => e
+        render json: { error: e.message }, status: :unprocessable_entity
+      end
+
     def send_email
         user_email = params[:user_email]
         subject = params[:user_objet]
