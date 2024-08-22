@@ -3,8 +3,6 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
   timeout: 5000 # Timeout in milliseconds for connections
-  # host: 192.168.200.15          # L'adresse IP ou le nom de domaine du serveur virtuel
-  # port: 5432                    # Le port PostgreSQL
   
   # Optional settings to enhance connection stability and performance
   # You can uncomment and adjust the following as needed:
@@ -14,8 +12,8 @@ default: &default
 development:
   <<: *default
   database: cvtheque_api_development
-  username: "postgres"
-  password: "root"
+  username: "user"
+  password: "cvtheque@@u5"
   # Optional: Adjust the host and port if needed
   # host: localhost
   # port: 5432
@@ -23,8 +21,8 @@ development:
 test:
   <<: *default
   database: test_cvtheque_api
-  username: "postgres"
-  password: "root"
+  username: "user"
+  password: "cvtheque@@u5"
   # Optional: Adjust the host and port if needed
   # host: localhost
   # port: 5432
@@ -32,8 +30,7 @@ test:
 production:
   <<: *default
   database: cvtheque_api_production
-  username: "postgres"
-  password: "root"
-  # password: "<%= ENV['DATABASE_PASSWORD'] %>" # Use environment variable for password
-  # host: "<%= ENV['DATABASE_HOST'] %>" # Use environment variable for host
-  # port: <%= ENV['DATABASE_PORT'] || 5432 %> # Use environment variable for port, default to 5432
+  username: "user"
+  password: "<%= ENV['DATABASE_PASSWORD'] %>" # Use environment variable for password
+  host: "<%= ENV['DATABASE_HOST'] %>" # Use environment variable for host
+  port: <%= ENV['DATABASE_PORT'] || 5432 %> # Use environment variable for port, default to 5432

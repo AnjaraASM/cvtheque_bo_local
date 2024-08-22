@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema[7.0].define(version: 2024_08_06_081004) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
 
   create_table "categorie_cvs", force: :cascade do |t|
