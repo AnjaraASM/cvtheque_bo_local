@@ -31,7 +31,8 @@ test:
 
 production:
   <<: *default
-  database: cvtheque_api_production
+  # database: cvtheque_api_production
+  database: cvtheque_api_development
   username: "postgres"
   password: "root"
   # password: "<%= ENV['DATABASE_PASSWORD'] %>" # Use environment variable for password
