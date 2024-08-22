@@ -17,7 +17,7 @@ services:
         fromDatabase:
           name: cvtheque
           property: connectionString
-      - key: 03b0d911bbf95f2aea88143ae9caf05a
+      - key: RAILS_MASTER_KEY
         sync: false
       - key: WEB_CONCURRENCY
         value: 2 # sensible default
